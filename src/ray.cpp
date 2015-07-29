@@ -7,7 +7,9 @@ Ray::Ray(PtrVector origin, PtrVector direction)
 {
 }
 
-Vector&& Ray::getPoint(double t)
+PtrVector Ray::getPoint(double t)
 {
-    return m_origin + m_direction * t;
+    PtrVector result = std::make_shared<Vector>();
+    (*result.get()) = (*m_origin.get()) + (*m_direction.get()) * t;
+    return result;
 }

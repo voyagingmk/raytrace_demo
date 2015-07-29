@@ -12,19 +12,21 @@ INCLUDEDIR = -I$(IDIR) -I.
 DEPS = 
 LIBS = -lm -ltcmalloc
 BINDIR = ./bin
-_OBJ = vector.o
+_OBJ = vector.o ray.o
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 PROGRAMS = renderer
 
 all: $(PROGRAMS)
 
+$(ODIR)/vector.o: $(SRCDIR)/vector.cpp $(IDIR)/vector.hpp
+	$(CPP) -c $(C11FLAGS) -o $@ $< $(INCLUDEDIR)
+
+
+$(ODIR)/ray.o: $(SRCDIR)/ray.cpp $(IDIR)/ray.hpp
+	$(CPP) -c $(C11FLAGS) -o $@ $< $(INCLUDEDIR)
+
 renderer: $(SRCDIR)/main.cpp $(OBJ)
 	$(CPP) $(C11FLAGS) -o $(BINDIR)/$@ $^ $(INCLUDEDIR) $(LIBS)
-
-
-vector.o: $(SRCDIR)/vector.cpp $(IDIR)/vector.hpp
-	$(CPP) -c $(C11FLAGS) -o $(ODIR)/$@ $< $(INCLUDEDIR)
-
 
 clean:
 	rm -rf $(PROGRAMS) *.dSYM *.o

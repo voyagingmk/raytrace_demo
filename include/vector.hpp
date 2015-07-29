@@ -2,6 +2,7 @@ class Vector {
 private:
 	double m_x, m_y, m_z;
 public:
+	Vector();
 	Vector(const double x, const double y, const double z);
 	Vector(const Vector &);
 	Vector(Vector &&);

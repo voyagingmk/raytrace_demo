@@ -1,6 +1,9 @@
 #include "vector.hpp"
 #include <algorithm>
 
+Vector::Vector():m_x(0), m_y(0), m_z(0) {
+};
+
 Vector::Vector(const double x, const double y, const double z):m_x(x), m_y(y), m_z(z) {
 };
 
