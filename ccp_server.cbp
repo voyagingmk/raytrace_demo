@@ -13,7 +13,10 @@
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
+					<Add option="-std=c++11" />
 					<Add option="-g" />
+					<Add directory="include" />
+					<Add directory="src" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -33,6 +36,9 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/base.hpp">
+			<Option virtualFolder="include/" />
+		</Unit>
 		<Unit filename="include/camera.hpp">
 			<Option virtualFolder="include/" />
 		</Unit>

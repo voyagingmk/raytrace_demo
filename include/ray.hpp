@@ -1,8 +1,4 @@
-#include<memory>
-
-class Vector;
-
-typedef std::shared_ptr<Vector> PtrVector;
+#include "base.hpp"
 
 class Ray{
 	PtrVector m_origin;

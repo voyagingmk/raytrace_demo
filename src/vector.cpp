@@ -31,7 +31,7 @@ Vector::~Vector() {
 
 }
 
-Vector& Vector::operator = (const Vector& v) {
+Vector&& Vector::operator = (const Vector& v) {
 	m_x = v.x();
 	m_y = v.y();
 	m_z = v.z();

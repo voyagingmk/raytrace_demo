@@ -1,16 +1,15 @@
-class Vector;
-class Ray;
+#include "base.hpp"
 
 class PerspectiveCamera {
-	Vector* m_eye;
-	Vector* m_front;
-	Vector* m_up;
-	Vector* m_refUp;
-	Vector* m_right;
+	PtrVector m_eye;
+	PtrVector m_front;
+	PtrVector m_up;
+	PtrVector m_refUp;
+	PtrVector m_right;
 	double m_fov;
 	double m_fovScale;
 public:
-	PerspectiveCamera(Vector& eye, Vector& front, Vector& up, double fov);
+	PerspectiveCamera(PtrVector eye, PtrVector front, PtrVector up, double fov);
 	void init();
-	Ray* generateRay(double x, double y);
+	PtrRay generateRay(double x, double y);
 };
