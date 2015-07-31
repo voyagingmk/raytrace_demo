@@ -2,9 +2,11 @@
 #include <algorithm>
 
 Vector::Vector():m_x(0), m_y(0), m_z(0) {
+     debug("Vector default created.");
 };
 
 Vector::Vector(const double x, const double y, const double z):m_x(x), m_y(y), m_z(z) {
+    debug("Vector param created.");
 };
 
 Vector::Vector(Vector && v):m_x(0),m_y(0),m_z(0) {
@@ -14,29 +16,33 @@ Vector::Vector(Vector && v):m_x(0),m_y(0),m_z(0) {
 	v.m_x = 0;
 	v.m_y = 0;
 	v.m_z = 0;
+	debug("Vector move created.");
 }
 
 Vector::Vector(const Vector & v) {
 	m_x = v.x();
 	m_y = v.y();
 	m_z = v.z();
-}
-
-Vector& Vector::operator = (Vector&& v) {
-	v.swap(*this);
-	return *this;
+	debug("Vector copy created.");
 }
 
 Vector::~Vector() {
-
+    debug("Destroyed.");
 }
 
-Vector&& Vector::operator = (const Vector& v) {
+Vector& Vector::operator = (const Vector& v) {
 	m_x = v.x();
 	m_y = v.y();
 	m_z = v.z();
+	debug("Vector copy assigned.");
 	return *this;
 }
+Vector& Vector::operator = (Vector&& v) {
+	v.swap(*this);
+	debug("Vector move assigned.");
+	return *this;
+}
+
 
 Vector Vector::operator + (const Vector& v) {
 	return Vector(m_x + v.x(), m_y + v.y(), m_z + v.z());
@@ -65,19 +71,19 @@ Vector Vector::cross(const Vector& v) {
 	return Vector(-m_z * v.y() + m_y * v.z(), m_z * v.x() - m_x * v.z(), - m_y * v.x() + m_x * v.y());
 }
 
-double Vector::x() const {
-	return m_x;
-}
-double Vector::y() const {
-	return m_y;
-}
-double Vector::z() const {
-	return m_z;
-}
 
 Vector& Vector::swap(Vector& v) {
 	std::swap(*this, v);
 	return *this;
 }
 
-Vector Vector::Zero(0,0,0);
+double Vector::dot(const Vector& v){
+    return m_x * v.x() + m_y * v.y() + m_z * v.z();
+}
+
+Vector Vector::normalize(){
+   double inv = 1.0 / length();
+   return Vector(m_x * inv, m_y * inv, m_z * inv);
+}
+
+PtrVector Vector::Zero = std::make_shared<Vector>(0,0,0);

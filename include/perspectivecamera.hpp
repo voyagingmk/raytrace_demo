@@ -1,3 +1,6 @@
+#ifndef PERSPECTIVE_CAMERA_HPP
+#define PERSPECTIVE_CAMERA_HPP
+
 #include "base.hpp"
 
 class PerspectiveCamera {
@@ -13,3 +16,5 @@ public:
 	void init();
 	PtrRay generateRay(double x, double y);
 };
+
+#endif // PERSPECTIVE_CAMERA_HPP

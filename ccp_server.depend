@@ -1,16 +1,17 @@
 # depslib dependency file v1.0
-1438013076 source:d:\wyman\dropbox\dropbox\cpp_server\src\common.cpp
+1438320604 source:d:\wyman\dropbox\dropbox\cpp_server\src\common.cpp
 	"common.hpp"
 
-1438013034 d:\wyman\dropbox\dropbox\cpp_server\include\common.hpp
+1438320555 d:\wyman\dropbox\dropbox\cpp_server\include\common.hpp
 	"geometry.hpp"
 	"vector.hpp"
 
 1438013027 d:\wyman\dropbox\dropbox\cpp_server\include\geometry.hpp
 
-1438187516 d:\wyman\dropbox\dropbox\cpp_server\include\vector.hpp
+1438331167 d:\wyman\dropbox\dropbox\cpp_server\include\vector.hpp
+	"base.hpp"
 
-1438012888 source:d:\wyman\dropbox\dropbox\cpp_server\src\main.cpp
+1438318964 source:d:\wyman\dropbox\dropbox\cpp_server\src\main.cpp
 	<stdio.h>
 	"catch.hpp"
 	"vector.hpp"
@@ -122,4 +123,196 @@
 	<string>
 	<vector>
 	<assert.h>
+
+1438013076 source:e:\workspace\dropbox\dropbox\cpp_server\src\common.cpp
+	"common.hpp"
+
+1438275253 e:\workspace\dropbox\dropbox\cpp_server\include\common.hpp
+	"geometry.hpp"
+	"vector.hpp"
+
+1438013027 e:\workspace\dropbox\dropbox\cpp_server\include\geometry.hpp
+
+1438275214 e:\workspace\dropbox\dropbox\cpp_server\include\vector.hpp
+	"base.hpp"
+
+1438275161 source:e:\workspace\dropbox\dropbox\cpp_server\src\main.cpp
+	<stdio.h>
+	"catch.hpp"
+	"vector.hpp"
+
+1437983646 e:\workspace\dropbox\dropbox\cpp_server\include\catch.hpp
+	<sstream>
+	<stdexcept>
+	<algorithm>
+	<ostream>
+	<string>
+	<memory>
+	<vector>
+	<stdlib.h>
+	<vector>
+	<string>
+	<cstddef>
+	<sstream>
+	<iomanip>
+	<limits>
+	<vector>
+	<cstddef>
+	<tuple>
+	<type_traits>
+	<string>
+	<string>
+	<string>
+	<cstddef>
+	<stdint.h>
+	<string>
+	<iterator>
+	<vector>
+	<string>
+	<stdlib.h>
+	<string>
+	<string>
+	<cmath>
+	<limits>
+	<string>
+	<string>
+	<set>
+	<string>
+	<string>
+	<vector>
+	<iostream>
+	<string>
+	<vector>
+	<streambuf>
+	<memory>
+	<vector>
+	<string>
+	<iostream>
+	<ctime>
+	<string>
+	<vector>
+	<sstream>
+	<map>
+	<algorithm>
+	<stdexcept>
+	<memory>
+	<fstream>
+	<string>
+	<vector>
+	<sstream>
+	<string>
+	<ostream>
+	<map>
+	<assert.h>
+	<limits>
+	<algorithm>
+	<map>
+	<string>
+	<assert.h>
+	<signal.h>
+	<set>
+	<string>
+	<fstream>
+	<stdlib.h>
+	<limits>
+	<vector>
+	<set>
+	<sstream>
+	<iostream>
+	<algorithm>
+	<map>
+	<ostream>
+	<streambuf>
+	<stdexcept>
+	<cstdio>
+	<iostream>
+	<AfxWin.h>
+	<windows.h>
+	<unistd.h>
+	<vector>
+	<string>
+	<map>
+	<windows.h>
+	<sys/time.h>
+	<iostream>
+	<assert.h>
+	<stdbool.h>
+	<sys/types.h>
+	<unistd.h>
+	<sys/sysctl.h>
+	<map>
+	<map>
+	<iostream>
+	<cstring>
+	<sstream>
+	<string>
+	<vector>
+	<assert.h>
+
+1438272201 source:e:\workspace\dropbox\dropbox\cpp_server\src\perspectivecamera.cpp
+	"perspectivecamera.hpp"
+	<cmath>
+	<vector.hpp>
+	<ray.hpp>
+
+1438275314 e:\workspace\dropbox\dropbox\cpp_server\include\perspectivecamera.hpp
+	"base.hpp"
+
+1438273993 e:\workspace\dropbox\dropbox\cpp_server\include\base.hpp
+	<memory>
+	<stdio.h>
+
+1438275282 e:\workspace\dropbox\dropbox\cpp_server\include\ray.hpp
+	"base.hpp"
+
+1438187455 source:e:\workspace\dropbox\dropbox\cpp_server\src\ray.cpp
+	"ray.hpp"
+	<vector.hpp>
+
+1438275009 source:e:\workspace\dropbox\dropbox\cpp_server\src\vector.cpp
+	"vector.hpp"
+	<algorithm>
+
+1438330633 d:\wyman\dropbox\dropbox\cpp_server\include\base.hpp
+	<memory>
+	<stdio.h>
+	<string>
+	<math.h>
+
+1438272201 source:d:\wyman\dropbox\dropbox\cpp_server\src\perspectivecamera.cpp
+	"perspectivecamera.hpp"
+	<cmath>
+	<vector.hpp>
+	<ray.hpp>
+
+1438275314 d:\wyman\dropbox\dropbox\cpp_server\include\perspectivecamera.hpp
+	"base.hpp"
+
+1438320773 d:\wyman\dropbox\dropbox\cpp_server\include\ray.hpp
+	"base.hpp"
+
+1438187455 source:d:\wyman\dropbox\dropbox\cpp_server\src\ray.cpp
+	"ray.hpp"
+	<vector.hpp>
+
+1438309683 source:d:\wyman\dropbox\dropbox\cpp_server\src\vector.cpp
+	"vector.hpp"
+	<algorithm>
+
+1438331075 source:d:\wyman\dropbox\dropbox\cpp_server\src\intersect_result.cpp
+	"intersect_result.hpp"
+	"vector.hpp"
+
+1438331044 d:\wyman\dropbox\dropbox\cpp_server\include\intersect_result.hpp
+	"base.hpp"
+
+1438331098 source:d:\wyman\dropbox\dropbox\cpp_server\src\sphere.cpp
+	"sphere.hpp"
+	"vector.hpp"
+	"ray.hpp"
+	"intersect_result.hpp"
+
+1438325449 d:\wyman\dropbox\dropbox\cpp_server\include\sphere.hpp
+	"base.hpp"
+	"geometry.hpp"
 
