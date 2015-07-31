@@ -12,10 +12,10 @@ public:
 	Sphere(PtrVector center, double radius);
 	Sphere(Sphere &);
 	Sphere operator = (const Sphere&);
-	void init();
-	PtrIntersectResult intersect(PtrRay);
-	PtrVector getCenter(){return m_center;}
-	inline double getRadius(){return m_radius;}
+	virtual void init();
+	virtual PtrIntersectResult intersect(PtrRay);
+	PtrVector getCenter() const {return m_center;}
+	inline double getRadius() const {return m_radius;}
 };
 
 #endif // SPHERE_HPP

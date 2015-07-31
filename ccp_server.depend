@@ -124,22 +124,27 @@
 	<vector>
 	<assert.h>
 
-1438013076 source:e:\workspace\dropbox\dropbox\cpp_server\src\common.cpp
+1438320604 source:e:\workspace\dropbox\dropbox\cpp_server\src\common.cpp
 	"common.hpp"
 
-1438275253 e:\workspace\dropbox\dropbox\cpp_server\include\common.hpp
+1438320555 e:\workspace\dropbox\dropbox\cpp_server\include\common.hpp
 	"geometry.hpp"
 	"vector.hpp"
 
-1438013027 e:\workspace\dropbox\dropbox\cpp_server\include\geometry.hpp
-
-1438275214 e:\workspace\dropbox\dropbox\cpp_server\include\vector.hpp
+1438362991 e:\workspace\dropbox\dropbox\cpp_server\include\geometry.hpp
 	"base.hpp"
 
-1438275161 source:e:\workspace\dropbox\dropbox\cpp_server\src\main.cpp
+1438361944 e:\workspace\dropbox\dropbox\cpp_server\include\vector.hpp
+	"base.hpp"
+
+1438362251 source:e:\workspace\dropbox\dropbox\cpp_server\src\main.cpp
 	<stdio.h>
+	"base.hpp"
 	"catch.hpp"
 	"vector.hpp"
+	"renderer.hpp"
+	"sphere.hpp"
+	"perspectivecamera.hpp"
 
 1437983646 e:\workspace\dropbox\dropbox\cpp_server\include\catch.hpp
 	<sstream>
@@ -258,18 +263,21 @@
 1438275314 e:\workspace\dropbox\dropbox\cpp_server\include\perspectivecamera.hpp
 	"base.hpp"
 
-1438273993 e:\workspace\dropbox\dropbox\cpp_server\include\base.hpp
+1438359291 e:\workspace\dropbox\dropbox\cpp_server\include\base.hpp
 	<memory>
 	<stdio.h>
+	<string>
+	<math.h>
+	"CImg.h"
 
-1438275282 e:\workspace\dropbox\dropbox\cpp_server\include\ray.hpp
+1438320773 e:\workspace\dropbox\dropbox\cpp_server\include\ray.hpp
 	"base.hpp"
 
 1438187455 source:e:\workspace\dropbox\dropbox\cpp_server\src\ray.cpp
 	"ray.hpp"
 	<vector.hpp>
 
-1438275009 source:e:\workspace\dropbox\dropbox\cpp_server\src\vector.cpp
+1438331249 source:e:\workspace\dropbox\dropbox\cpp_server\src\vector.cpp
 	"vector.hpp"
 	<algorithm>
 
@@ -295,7 +303,7 @@
 	"ray.hpp"
 	<vector.hpp>
 
-1438309683 source:d:\wyman\dropbox\dropbox\cpp_server\src\vector.cpp
+1438331249 source:d:\wyman\dropbox\dropbox\cpp_server\src\vector.cpp
 	"vector.hpp"
 	<algorithm>
 
@@ -315,4 +323,84 @@
 1438325449 d:\wyman\dropbox\dropbox\cpp_server\include\sphere.hpp
 	"base.hpp"
 	"geometry.hpp"
+
+1438363050 source:e:\workspace\dropbox\dropbox\cpp_server\src\intersect_result.cpp
+	"intersect_result.hpp"
+	"vector.hpp"
+
+1438363037 e:\workspace\dropbox\dropbox\cpp_server\include\intersect_result.hpp
+	"base.hpp"
+
+1438363645 source:e:\workspace\dropbox\dropbox\cpp_server\src\sphere.cpp
+	"sphere.hpp"
+	"vector.hpp"
+	"ray.hpp"
+	"intersect_result.hpp"
+
+1438360983 e:\workspace\dropbox\dropbox\cpp_server\include\sphere.hpp
+	"base.hpp"
+	"geometry.hpp"
+
+1438357579 e:\workspace\dropbox\dropbox\cpp_server\include\cimg.h
+	<cstdio>
+	<cstdlib>
+	<cstdarg>
+	<cstring>
+	<cmath>
+	<climits>
+	<ctime>
+	<exception>
+	<stdio.h>
+	<sys/types.h>
+	<sys/time.h>
+	<sys/stat.h>
+	<unistd.h>
+	<dirent.h>
+	<fnmatch.h>
+	<windows.h>
+	<shlobj.h>
+	<process.h>
+	<io.h>
+	<initializer_list>
+	<utility>
+	<X11/Xlib.h>
+	<X11/Xutil.h>
+	<X11/keysym.h>
+	<pthread.h>
+	<sys/ipc.h>
+	<sys/shm.h>
+	<X11/extensions/XShm.h>
+	<X11/extensions/Xrandr.h>
+	<omp.h>
+	<cstddef>
+	"cv.h"
+	"highgui.h"
+	"png.h"
+	"jpeglib.h"
+	"setjmp.h"
+	"tiffio.h"
+	"minc_io_simple_volume.h"
+	"minc_1_simple.h"
+	"minc_1_simple_rw.h"
+	"zlib.h"
+	"curl/curl.h"
+	"Magick++.h"
+	"fftw3.h"
+	"Board.h"
+	"ImfRgbaFile.h"
+	"ImfInputFile.h"
+	"ImfChannelList.h"
+	"ImfMatrixAttribute.h"
+	"ImfArray.h"
+	"CImg.h"
+	<stdint.h>
+
+1438360556 e:\workspace\dropbox\dropbox\cpp_server\include\renderer.hpp
+	"base.hpp"
+
+1438363431 source:e:\workspace\dropbox\dropbox\cpp_server\src\renderer.cpp
+	"renderer.hpp"
+	"perspectivecamera.hpp"
+	"geometry.hpp"
+	"intersect_result.hpp"
 

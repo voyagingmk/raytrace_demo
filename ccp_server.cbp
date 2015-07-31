@@ -13,11 +13,14 @@
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
-					<Add option="-std=c++11" />
 					<Add option="-g" />
+					<Add option="-std=gnu++11 -lgdi32" />
 					<Add directory="include" />
 					<Add directory="src" />
 				</Compiler>
+				<Linker>
+					<Add option="-lgdi32" />
+				</Linker>
 			</Target>
 			<Target title="Release">
 				<Option output="output/bin/Release/ccp_server" prefix_auto="1" extension_auto="1" />
@@ -36,6 +39,9 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/CImg.h">
+			<Option virtualFolder="include/" />
+		</Unit>
 		<Unit filename="include/base.hpp">
 			<Option virtualFolder="include/" />
 		</Unit>
@@ -51,10 +57,16 @@
 		<Unit filename="include/geometry.hpp">
 			<Option virtualFolder="include/" />
 		</Unit>
+		<Unit filename="include/intersect_result.hpp">
+			<Option virtualFolder="include/" />
+		</Unit>
 		<Unit filename="include/perspectivecamera.hpp">
 			<Option virtualFolder="include/" />
 		</Unit>
 		<Unit filename="include/ray.hpp">
+			<Option virtualFolder="include/" />
+		</Unit>
+		<Unit filename="include/renderer.hpp">
 			<Option virtualFolder="include/" />
 		</Unit>
 		<Unit filename="include/sphere.hpp">
@@ -66,6 +78,9 @@
 		<Unit filename="src/common.cpp">
 			<Option virtualFolder="src/" />
 		</Unit>
+		<Unit filename="src/intersect_result.cpp">
+			<Option virtualFolder="src/" />
+		</Unit>
 		<Unit filename="src/main.cpp">
 			<Option virtualFolder="src/" />
 		</Unit>
@@ -73,6 +88,12 @@
 			<Option virtualFolder="src/" />
 		</Unit>
 		<Unit filename="src/ray.cpp">
+			<Option virtualFolder="src/" />
+		</Unit>
+		<Unit filename="src/renderer.cpp">
+			<Option virtualFolder="src/" />
+		</Unit>
+		<Unit filename="src/sphere.cpp">
 			<Option virtualFolder="src/" />
 		</Unit>
 		<Unit filename="src/vector.cpp">

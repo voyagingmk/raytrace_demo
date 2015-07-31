@@ -9,7 +9,6 @@ Ray::Ray(PtrVector origin, PtrVector direction)
 
 PtrVector Ray::getPoint(double t)
 {
-    PtrVector result = std::make_shared<Vector>();
-    (*result.get()) = (*m_origin.get()) + (*m_direction.get()) * t;
+    PtrVector result = std::make_shared<Vector>((*m_origin) + (*m_direction) * t);
     return result;
 }

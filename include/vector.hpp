@@ -33,10 +33,11 @@ public:
         debug("");
     }
     void debug(std::string msg){
-        printf("%s [x, y, z = %f, %f, %f]\n", msg.c_str(), m_x, m_y, m_z);
+        //printf("%s [x, y, z = %f, %f, %f]\n", msg.c_str(), m_x, m_y, m_z);
     }
 public:
 	static PtrVector Zero;
+
 };
 
 #endif // VECTOR_HPP

@@ -11,7 +11,7 @@ class IntersectResult{
 public:
 	IntersectResult();
     IntersectResult(PtrGeometry, double, PtrVector, PtrVector);
-    IntersectResult(double, const Vector&, const Vector&);
+    IntersectResult(PtrGeometry, double, const Vector&, const Vector&);
     void setGeometry(PtrGeometry ptrGeo){ m_geometry = ptrGeo;};
     PtrGeometry getGeometry(){ return m_geometry; };
     double getDistance(){ return m_distance; };

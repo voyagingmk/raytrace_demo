@@ -1,7 +1,12 @@
 #include <stdio.h>
 #define CATCH_CONFIG_MAIN
+#include "base.hpp"
 #include "catch.hpp"
 #include "vector.hpp"
+#include "renderer.hpp"
+#include "sphere.hpp"
+#include "perspectivecamera.hpp"
+
 
 TEST_CASE( "Vector base usages", "[Vector]" ) {
     printf("==========\n");
@@ -23,5 +28,16 @@ TEST_CASE( "Vector base usages", "[Vector]" ) {
 	REQUIRE( -v3 * 5 == v4 * 5 );
 	printf("===\n");
 	REQUIRE( v1.cross(v3+v4) == v2.cross(v3+v4) );
+
+	cil::CImg<unsigned char> img(100,100,1,3);
+	printf("%s",img.data());
+	Renderer renderer;
+	PtrSphere sphere = std::make_shared<Sphere>(std::make_shared<Vector>(0,10,-10),10);
+	PerspectiveCamera camera(std::make_shared<Vector>(0, 10, 10),
+                          std::make_shared<Vector>(0, 0, -1),
+                          std::make_shared<Vector>(0, 1, 0),
+                          90);
+	renderer.renderDepth(img, *sphere, camera, 20);
+	img.display("");
 	//REQUIRE( (v4.normalize() - Vector(10,10,10).normalize())==Vector(0,0,0));
 }
