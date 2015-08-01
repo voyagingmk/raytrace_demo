@@ -29,7 +29,7 @@ TEST_CASE( "Vector base usages", "[Vector]" ) {
 	printf("===\n");
 	REQUIRE( v1.cross(v3+v4) == v2.cross(v3+v4) );
 
-	cil::CImg<unsigned char> img(100,100,1,3);
+	cil::CImg<unsigned char> img(300,300,1,3);
 	printf("%s",img.data());
 	Renderer renderer;
 	PtrSphere sphere = std::make_shared<Sphere>(std::make_shared<Vector>(0,10,-10),10);
