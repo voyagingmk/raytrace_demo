@@ -131,13 +131,13 @@
 	"geometry.hpp"
 	"vector.hpp"
 
-1438362991 e:\workspace\dropbox\dropbox\cpp_server\include\geometry.hpp
+1438444512 e:\workspace\dropbox\dropbox\cpp_server\include\geometry.hpp
 	"base.hpp"
 
 1438361944 e:\workspace\dropbox\dropbox\cpp_server\include\vector.hpp
 	"base.hpp"
 
-1438364014 source:e:\workspace\dropbox\dropbox\cpp_server\src\main.cpp
+1438448822 source:e:\workspace\dropbox\dropbox\cpp_server\src\main.cpp
 	<stdio.h>
 	"base.hpp"
 	"catch.hpp"
@@ -145,6 +145,8 @@
 	"renderer.hpp"
 	"sphere.hpp"
 	"perspectivecamera.hpp"
+	"material.hpp"
+	"color.hpp"
 
 1437983646 e:\workspace\dropbox\dropbox\cpp_server\include\catch.hpp
 	<sstream>
@@ -263,7 +265,7 @@
 1438275314 e:\workspace\dropbox\dropbox\cpp_server\include\perspectivecamera.hpp
 	"base.hpp"
 
-1438359291 e:\workspace\dropbox\dropbox\cpp_server\include\base.hpp
+1438441010 e:\workspace\dropbox\dropbox\cpp_server\include\base.hpp
 	<memory>
 	<stdio.h>
 	<string>
@@ -337,7 +339,7 @@
 	"ray.hpp"
 	"intersect_result.hpp"
 
-1438360983 e:\workspace\dropbox\dropbox\cpp_server\include\sphere.hpp
+1438440609 e:\workspace\dropbox\dropbox\cpp_server\include\sphere.hpp
 	"base.hpp"
 	"geometry.hpp"
 
@@ -395,12 +397,33 @@
 	"CImg.h"
 	<stdint.h>
 
-1438360556 e:\workspace\dropbox\dropbox\cpp_server\include\renderer.hpp
+1438447081 e:\workspace\dropbox\dropbox\cpp_server\include\renderer.hpp
 	"base.hpp"
 
-1438363431 source:e:\workspace\dropbox\dropbox\cpp_server\src\renderer.cpp
+1438447335 source:e:\workspace\dropbox\dropbox\cpp_server\src\renderer.cpp
 	"renderer.hpp"
 	"perspectivecamera.hpp"
 	"geometry.hpp"
 	"intersect_result.hpp"
+	"vector.hpp"
+	"material.hpp"
+	"color.hpp"
+
+1438449085 source:e:\workspace\dropbox\dropbox\cpp_server\src\color.cpp
+	"color.hpp"
+
+1438444212 e:\workspace\dropbox\dropbox\cpp_server\include\color.hpp
+	"base.hpp"
+
+1438441219 source:e:\workspace\dropbox\dropbox\cpp_server\src\geometry.cpp
+	"geometry.hpp"
+
+1438449581 source:e:\workspace\dropbox\dropbox\cpp_server\src\material.cpp
+	"material.hpp"
+	"vector.hpp"
+	"color.hpp"
+	"ray.hpp"
+
+1438449214 e:\workspace\dropbox\dropbox\cpp_server\include\material.hpp
+	"base.hpp"
 

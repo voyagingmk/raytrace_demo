@@ -9,14 +9,18 @@
 
 class IntersectResult;
 class Geometry;
+class Material;
 class Vector;
 class Sphere;
+class Color;
 class Ray;
 
 typedef std::shared_ptr<IntersectResult> PtrIntersectResult;
 typedef std::shared_ptr<Geometry> PtrGeometry;
+typedef std::shared_ptr<Material> PtrMaterial;
 typedef std::shared_ptr<Vector> PtrVector;
 typedef std::shared_ptr<Sphere> PtrSphere;
+typedef std::shared_ptr<Color> PtrColor;
 typedef std::shared_ptr<Ray> PtrRay;
 
 constexpr double PI  =3.141592653589793238463;
