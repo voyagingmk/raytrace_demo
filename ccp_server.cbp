@@ -29,9 +29,13 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add option="-std=gnu++11 -lgdi32" />
+					<Add directory="include" />
+					<Add directory="src" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
+					<Add option="-lgdi32" />
 				</Linker>
 			</Target>
 		</Build>
@@ -51,6 +55,9 @@
 		<Unit filename="include/catch.hpp">
 			<Option virtualFolder="include/" />
 		</Unit>
+		<Unit filename="include/color.hpp">
+			<Option virtualFolder="include/" />
+		</Unit>
 		<Unit filename="include/common.hpp">
 			<Option virtualFolder="include/" />
 		</Unit>
@@ -58,6 +65,9 @@
 			<Option virtualFolder="include/" />
 		</Unit>
 		<Unit filename="include/intersect_result.hpp">
+			<Option virtualFolder="include/" />
+		</Unit>
+		<Unit filename="include/material.hpp">
 			<Option virtualFolder="include/" />
 		</Unit>
 		<Unit filename="include/perspectivecamera.hpp">
@@ -75,13 +85,22 @@
 		<Unit filename="include/vector.hpp">
 			<Option virtualFolder="include/" />
 		</Unit>
+		<Unit filename="src/color.cpp">
+			<Option virtualFolder="src/" />
+		</Unit>
 		<Unit filename="src/common.cpp">
+			<Option virtualFolder="src/" />
+		</Unit>
+		<Unit filename="src/geometry.cpp">
 			<Option virtualFolder="src/" />
 		</Unit>
 		<Unit filename="src/intersect_result.cpp">
 			<Option virtualFolder="src/" />
 		</Unit>
 		<Unit filename="src/main.cpp">
+			<Option virtualFolder="src/" />
+		</Unit>
+		<Unit filename="src/material.cpp">
 			<Option virtualFolder="src/" />
 		</Unit>
 		<Unit filename="src/perspectivecamera.cpp">
