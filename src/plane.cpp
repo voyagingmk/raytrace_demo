@@ -27,6 +27,5 @@ PtrIntersectResult Plane::intersect(PtrRay ray){
         return IntersectResult::NoHit;
     double dotB = m_normal->dot(*(ray->getOrigin()) - *m_position);
     double distance = -dotB / dotA;
-    IntersectResult result(shared_from_this(), distance, ray->getPoint(distance), m_normal);
-    return std::make_shared<IntersectResult>(result);
+    return std::make_shared<IntersectResult>(IntersectResult(shared_from_this(), distance, ray->getPoint(distance), m_normal));
 }

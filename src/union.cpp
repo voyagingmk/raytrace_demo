@@ -3,6 +3,8 @@
 #include "plane.hpp"
 #include "ray.hpp"
 #include "intersect_result.hpp"
+#include "vector.hpp"
+#include "material.hpp"
 
 Union::Union( std::vector<PtrGeometry> geometries):m_geometries(geometries){
 };
@@ -21,6 +23,7 @@ PtrIntersectResult Union::intersect(PtrRay ray){
         if (result->getGeometry() && result->getDistance() < minDistance) {
             minDistance = result->getDistance();
             minResult = result;
+            //printf("%f,%f,%f == %f,%f\n",ray->getDirection()->x(),ray->getDirection()->y(),ray->getDirection()->z(),minDistance, result->getGeometry()->getMaterial()->getReflectiveness());
         }
     }
     return minResult;

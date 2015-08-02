@@ -23,11 +23,11 @@ public:
     inline double g() const {return m_rgb[1];};
     inline double b() const {return m_rgb[2];};
 public:
-    static PtrColor Black;
-    static PtrColor White;
-    static PtrColor Red;
-    static PtrColor Green;
-    static PtrColor Blue;
+    static const PtrColor Black;
+    static const PtrColor White;
+    static const PtrColor Red;
+    static const PtrColor Green;
+    static const PtrColor Blue;
 };
 
 #endif // COLOR_HPP

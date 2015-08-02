@@ -33,7 +33,7 @@ TEST_CASE( "Vector base usages", "[Vector]" ) {
 	printf("===\n");
 	REQUIRE( v1.cross(v3+v4) == v2.cross(v3+v4) );
 
-	cil::CImg<unsigned char> img(600,600,1,3);
+	cil::CImg<unsigned char> img(500,500,1,3);
 	//printf("%s",img.data());
 	Renderer renderer;
 	/*
@@ -63,7 +63,7 @@ TEST_CASE( "Vector base usages", "[Vector]" ) {
                           90);
 
 	//renderer.rayTrace(img, *pUnion, camera);
-	renderer.rayTraceReflection(img, *pUnion, camera, 3);
+	renderer.rayTraceReflection(img, std::static_pointer_cast<Geometry>(pUnion), camera, 3);
 
 	img.display("");
 	//REQUIRE( (v4.normalize() - Vector(10,10,10).normalize())==Vector(0,0,0));

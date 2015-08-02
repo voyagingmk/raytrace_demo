@@ -11,8 +11,8 @@ public:
     void renderDepth(cil::CImg<unsigned char>&, Geometry&, PerspectiveCamera&, double maxDepth);
     void renderNormal(cil::CImg<unsigned char> &img, Geometry& scene, PerspectiveCamera& camera, double maxDepth);
     void rayTrace(cil::CImg<unsigned char> &img, Geometry& scene, PerspectiveCamera& camera);
-	PtrColor rayTraceRecursive( Geometry& scene, PtrRay ray, int maxReflect);
-	void rayTraceReflection(cil::CImg<unsigned char> &img, Geometry& scene, PerspectiveCamera& camera, int maxReflect);
+	PtrColor rayTraceRecursive( PtrGeometry scene, PtrRay ray, int maxReflect);
+	void rayTraceReflection(cil::CImg<unsigned char> &img, PtrGeometry scene, PerspectiveCamera& camera, int maxReflect);
 };
 
 
