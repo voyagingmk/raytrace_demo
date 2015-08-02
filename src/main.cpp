@@ -46,13 +46,13 @@ TEST_CASE( "Vector base usages", "[Vector]" ) {
 	renderer.renderNormal(img, *sphere, camera, 20);
 	*/
 	PtrSphere sphere1 = std::make_shared<Sphere>(std::make_shared<Vector>(-10, 10, -10),10);
-	sphere1->setMaterial(std::dynamic_pointer_cast <Material>(std::make_shared<PhongMaterial>(Color::Red, Color::White, 16)));
+	sphere1->setMaterial(std::static_pointer_cast<Material>(std::make_shared<PhongMaterial>(Color::Red, Color::White, 16, 0.25)));	
 
 	PtrSphere sphere2 = std::make_shared<Sphere>(std::make_shared<Vector>(10, 10, -10),10);
-	sphere2->setMaterial(std::dynamic_pointer_cast <Material>(std::make_shared<PhongMaterial>(Color::Blue, Color::White, 16)));
+	sphere2->setMaterial(std::dynamic_pointer_cast <Material>(std::make_shared<PhongMaterial>(Color::Blue, Color::White, 16,0.25)));
 
 	PtrPlane plane = std::make_shared<Plane>(std::make_shared<Vector>(0,1,0),0);
-	plane->setMaterial(std::dynamic_pointer_cast <Material>(std::make_shared<CheckerMaterial>(0.1)));
+	plane->setMaterial(std::dynamic_pointer_cast <Material>(std::make_shared<CheckerMaterial>(0.1, 0.5)));
 
 
     PtrUnion pUnion = std::make_shared<Union>(std::vector<PtrGeometry>({sphere1,sphere2,plane}));

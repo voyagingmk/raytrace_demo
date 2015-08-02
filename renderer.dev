@@ -11,7 +11,7 @@ ResourceIncludes=
 MakeIncludes=
 Compiler=
 CppCompiler=-std=gnu++11 -lgdi32_@@_
-Linker= -lgdi32_@@_
+Linker=-g -lgdi32_@@_
 IsCpp=1
 Icon=
 ExeOutput=
@@ -27,8 +27,8 @@ CommandLine=
 Folders=include,src
 IncludeVersionInfo=0
 SupportXPThemes=0
-CompilerSet=0
-CompilerSettings=0000000000000000000000000
+CompilerSet=1
+CompilerSettings=0000000000100001001000000
 UnitCount=43
 
 [VersionInfo]

@@ -8,6 +8,7 @@
 #include <limits>
 #include <vector>
 #include <list>
+#include <assert.h>
 #include "CImg.h"
 
 #define DEFINE_SHARE_PTR(name) typedef std::shared_ptr<name> Ptr#name;

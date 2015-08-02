@@ -68,7 +68,8 @@ bool Vector::operator == (const Vector& v) {
 }
 
 Vector Vector::cross(const Vector& v) {
-	return Vector(-m_z * v.y() + m_y * v.z(), m_z * v.x() - m_x * v.z(), - m_y * v.x() + m_x * v.y());
+	Vector && res =  Vector(-m_z * v.y() + m_y * v.z(), m_z * v.x() - m_x * v.z(), - m_y * v.x() + m_x * v.y());
+	return res;
 }
 
 

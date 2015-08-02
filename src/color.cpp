@@ -24,12 +24,14 @@ Color& Color::operator = (const Color& c){
     m_rgb[0] = c.r();
     m_rgb[1] = c.g();
     m_rgb[2] = c.b();
+    return *this;
 };
 
 Color& Color::operator = (Color&& c){
     m_rgb[0] = c.r();
     m_rgb[1] = c.g();
     m_rgb[2] = c.b();
+    return *this;
 };
 
 Color::~Color(){};

@@ -12,7 +12,6 @@ void Renderer::renderDepth(cil::CImg<unsigned char> &img, Geometry& scene, Persp
     camera.init();
     int i = 0;
     int w = img.width(), h = img.height();
-    auto pixels = img.data();
     for (int y = 0; y < h; y++) {
         double sy = 1.0 - (double)y / h;
         for (int x = 0; x < w; x++) {
@@ -43,7 +42,6 @@ void Renderer::renderNormal(cil::CImg<unsigned char> &img, Geometry& scene, Pers
             PtrIntersectResult result = scene.intersect(ray);
             if (result->getGeometry()) {
                 PtrVector pNormal = result->getNormal();
-                int depth = 255.0 - std::min((result->getDistance() / maxDepth) * 255.0, 255.0);
                 img.atXYZC(x, y, 0, 0) = (pNormal->x() + 1) * 128;
                 img.atXYZC(x, y, 0, 1) = (pNormal->y() + 1) * 128;
                 img.atXYZC(x, y, 0, 2) = (pNormal->z() + 1) * 128;
@@ -85,11 +83,11 @@ PtrColor Renderer::rayTraceRecursive( Geometry& scene, PtrRay ray, int maxReflec
         double reflectiveness = pMaterial->getReflectiveness();
         PtrColor color = pMaterial->sample(ray, result->getPosition(), result->getNormal());
         *color = *color * (1 - reflectiveness);
-         
         if (reflectiveness > 0 && maxReflect > 0) {
-            PtrVector r =std::make_shared<Vector>( *(result->getNormal()) * (-2 * result->getNormal()->dot(*(ray->getDirection()))) + *(ray->getDirection()) );
+            PtrVector r =std::make_shared<Vector>( *(result->getNormal()) * ( -2 * (result->getNormal()->dot(*(ray->getDirection()))) ) + *(ray->getDirection()) );
             PtrRay new_ray = std::make_shared<Ray>(result->getPosition(), r);
-            PtrColor reflectedColor = rayTraceRecursive(scene, ray, maxReflect - 1);
+            PtrColor reflectedColor = rayTraceRecursive(scene, new_ray, maxReflect - 1);
+            assert(reflectedColor->r() >= 0 && reflectedColor->g() >= 0 && reflectedColor->b() >= 0);
             *color = *color + *reflectedColor * reflectiveness;
         }
         return color;
@@ -101,7 +99,6 @@ PtrColor Renderer::rayTraceRecursive( Geometry& scene, PtrRay ray, int maxReflec
 void Renderer::rayTraceReflection(cil::CImg<unsigned char> &img, Geometry& scene, PerspectiveCamera& camera, int maxReflect) {
     scene.init();
     camera.init();
-    int i = 0;
     int w = img.width(), h = img.height();
     for (int y = 0; y < h; y++) {
         double sy = 1.0 - (double)y / h;

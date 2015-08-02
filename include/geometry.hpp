@@ -9,7 +9,7 @@ public:
     Geometry():m_material(nullptr){};
     virtual void init() = 0;
     virtual PtrIntersectResult intersect(PtrRay) = 0;
-    inline PtrMaterial setMaterial(PtrMaterial pMaterial){ m_material = pMaterial; };
+    inline void setMaterial(PtrMaterial pMaterial){m_material = pMaterial;};
     inline PtrMaterial getMaterial(){ return m_material; };
 };
 
