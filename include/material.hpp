@@ -4,7 +4,7 @@
 #include "base.hpp"
 
 
-class Material{
+class Material: public std::enable_shared_from_this<Material>{
 public:
     virtual PtrColor sample(PtrRay ray, PtrVector position, PtrVector normal) = 0;
 public:

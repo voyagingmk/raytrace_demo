@@ -54,6 +54,7 @@ void Renderer::renderNormal(cil::CImg<unsigned char> &img, Geometry& scene, Pers
     }
 };
 
+
 void Renderer::rayTrace(cil::CImg<unsigned char> &img, Geometry& scene, PerspectiveCamera& camera){
     scene.init();
     camera.init();

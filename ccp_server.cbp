@@ -73,6 +73,9 @@
 		<Unit filename="include/perspectivecamera.hpp">
 			<Option virtualFolder="include/" />
 		</Unit>
+		<Unit filename="include/plane.hpp">
+			<Option virtualFolder="include/" />
+		</Unit>
 		<Unit filename="include/ray.hpp">
 			<Option virtualFolder="include/" />
 		</Unit>
@@ -80,6 +83,9 @@
 			<Option virtualFolder="include/" />
 		</Unit>
 		<Unit filename="include/sphere.hpp">
+			<Option virtualFolder="include/" />
+		</Unit>
+		<Unit filename="include/union.hpp">
 			<Option virtualFolder="include/" />
 		</Unit>
 		<Unit filename="include/vector.hpp">
@@ -106,6 +112,9 @@
 		<Unit filename="src/perspectivecamera.cpp">
 			<Option virtualFolder="src/" />
 		</Unit>
+		<Unit filename="src/plane.cpp">
+			<Option virtualFolder="src/" />
+		</Unit>
 		<Unit filename="src/ray.cpp">
 			<Option virtualFolder="src/" />
 		</Unit>
@@ -115,13 +124,20 @@
 		<Unit filename="src/sphere.cpp">
 			<Option virtualFolder="src/" />
 		</Unit>
+		<Unit filename="src/union.cpp">
+			<Option virtualFolder="src/" />
+		</Unit>
 		<Unit filename="src/vector.cpp">
 			<Option virtualFolder="src/" />
 		</Unit>
 		<Extensions>
 			<code_completion />
 			<envvars />
-			<debugger />
+			<debugger>
+				<remote_debugging target="Debug">
+					<options conn_type="0" serial_baud="115200" additional_cmds_before="&#x0A;" />
+				</remote_debugging>
+			</debugger>
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>

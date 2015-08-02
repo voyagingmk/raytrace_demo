@@ -8,6 +8,8 @@
 #include "perspectivecamera.hpp"
 #include "material.hpp"
 #include "color.hpp"
+#include "plane.hpp"
+#include "union.hpp"
 
 
 TEST_CASE( "Vector base usages", "[Vector]" ) {
@@ -31,7 +33,7 @@ TEST_CASE( "Vector base usages", "[Vector]" ) {
 	printf("===\n");
 	REQUIRE( v1.cross(v3+v4) == v2.cross(v3+v4) );
 
-	cil::CImg<unsigned char> img(300,300,1,3);
+	cil::CImg<unsigned char> img(600,600,1,3);
 	//printf("%s",img.data());
 	Renderer renderer;
 	/*
@@ -43,15 +45,29 @@ TEST_CASE( "Vector base usages", "[Vector]" ) {
                           90);
 	renderer.renderNormal(img, *sphere, camera, 20);
 	*/
-	PtrSphere sphere = std::make_shared<Sphere>(std::make_shared<Vector>(-10,10,-10),10);
+	PtrSphere sphere1 = std::make_shared<Sphere>(std::make_shared<Vector>(-10, 10, -10),10);
+    std::shared_ptr<PhongMaterial> pMat1 = std::make_shared<PhongMaterial>(Color::Red, Color::White, 16);
+	assert(sphere1!=nullptr);
+	assert(pMat1!=nullptr);
+	sphere1->setMaterial(std::static_pointer_cast<Material>(pMat1));
+
+	PtrSphere sphere2 = std::make_shared<Sphere>(std::make_shared<Vector>(10, 10, -10),10);
+    std::shared_ptr<PhongMaterial> pMat2 = std::make_shared<PhongMaterial>(Color::Blue, Color::White, 16);
+	sphere2->setMaterial(std::static_pointer_cast<Material>(pMat2));
+
+	PtrPlane plane = std::make_shared<Plane>(std::make_shared<Vector>(0,1,0),0);
+    std::shared_ptr<CheckerMaterial> pMat3 = std::make_shared<CheckerMaterial>(0.1);
+	plane->setMaterial(std::static_pointer_cast<Material>(pMat3));
+
+
+    PtrUnion pUnion = std::make_shared<Union>(std::vector<PtrGeometry>({sphere1,sphere2,plane}));
 
 	PerspectiveCamera camera(std::make_shared<Vector>(0, 5, 15),
                           std::make_shared<Vector>(0, 0, -1),
                           std::make_shared<Vector>(0, 1, 0),
                           90);
-	std::shared_ptr<PhongMaterial> pMat = std::make_shared<PhongMaterial>(Color::Red, Color::White, 16);
-	sphere->setMaterial(std::static_pointer_cast<Material>(pMat));
-	renderer.rayTrace(img, *sphere, camera);
+
+	renderer.rayTrace(img, *pUnion, camera);
 
 
 	img.display("");

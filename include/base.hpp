@@ -5,13 +5,19 @@
 #include <stdio.h>
 #include <string>
 #include <math.h>
+#include <limits>
+#include <vector>
+#include <list>
 #include "CImg.h"
 
+#define DEFINE_SHARE_PTR(name) typedef std::shared_ptr<name> Ptr#name;
 class IntersectResult;
 class Geometry;
 class Material;
 class Vector;
 class Sphere;
+class Plane;
+class Union;
 class Color;
 class Ray;
 
@@ -20,6 +26,8 @@ typedef std::shared_ptr<Geometry> PtrGeometry;
 typedef std::shared_ptr<Material> PtrMaterial;
 typedef std::shared_ptr<Vector> PtrVector;
 typedef std::shared_ptr<Sphere> PtrSphere;
+typedef std::shared_ptr<Plane> PtrPlane;
+typedef std::shared_ptr<Union> PtrUnion;
 typedef std::shared_ptr<Color> PtrColor;
 typedef std::shared_ptr<Ray> PtrRay;
 
