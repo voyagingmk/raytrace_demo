@@ -46,18 +46,13 @@ TEST_CASE( "Vector base usages", "[Vector]" ) {
 	renderer.renderNormal(img, *sphere, camera, 20);
 	*/
 	PtrSphere sphere1 = std::make_shared<Sphere>(std::make_shared<Vector>(-10, 10, -10),10);
-    std::shared_ptr<PhongMaterial> pMat1 = std::make_shared<PhongMaterial>(Color::Red, Color::White, 16);
-	assert(sphere1!=nullptr);
-	assert(pMat1!=nullptr);
-	sphere1->setMaterial(std::static_pointer_cast<Material>(pMat1));
+	sphere1->setMaterial(std::dynamic_pointer_cast <Material>(std::make_shared<PhongMaterial>(Color::Red, Color::White, 16)));
 
 	PtrSphere sphere2 = std::make_shared<Sphere>(std::make_shared<Vector>(10, 10, -10),10);
-    std::shared_ptr<PhongMaterial> pMat2 = std::make_shared<PhongMaterial>(Color::Blue, Color::White, 16);
-	sphere2->setMaterial(std::static_pointer_cast<Material>(pMat2));
+	sphere2->setMaterial(std::dynamic_pointer_cast <Material>(std::make_shared<PhongMaterial>(Color::Blue, Color::White, 16)));
 
 	PtrPlane plane = std::make_shared<Plane>(std::make_shared<Vector>(0,1,0),0);
-    std::shared_ptr<CheckerMaterial> pMat3 = std::make_shared<CheckerMaterial>(0.1);
-	plane->setMaterial(std::static_pointer_cast<Material>(pMat3));
+	plane->setMaterial(std::dynamic_pointer_cast <Material>(std::make_shared<CheckerMaterial>(0.1)));
 
 
     PtrUnion pUnion = std::make_shared<Union>(std::vector<PtrGeometry>({sphere1,sphere2,plane}));
@@ -67,8 +62,8 @@ TEST_CASE( "Vector base usages", "[Vector]" ) {
                           std::make_shared<Vector>(0, 1, 0),
                           90);
 
-	renderer.rayTrace(img, *pUnion, camera);
-
+	//renderer.rayTrace(img, *pUnion, camera);
+	renderer.rayTraceReflection(img, *pUnion, camera, 3);
 
 	img.display("");
 	//REQUIRE( (v4.normalize() - Vector(10,10,10).normalize())==Vector(0,0,0));

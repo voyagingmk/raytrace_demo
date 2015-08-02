@@ -5,6 +5,7 @@
 #include "vector.hpp"
 #include "material.hpp"
 #include "color.hpp"
+#include "ray.hpp"
 
 void Renderer::renderDepth(cil::CImg<unsigned char> &img, Geometry& scene, PerspectiveCamera& camera, double maxDepth){
     scene.init();
@@ -34,7 +35,6 @@ void Renderer::renderNormal(cil::CImg<unsigned char> &img, Geometry& scene, Pers
     camera.init();
     int i = 0;
     int w = img.width(), h = img.height();
-    auto pixels = img.data();
     for (int y = 0; y < h; y++) {
         double sy = 1.0 - (double)y / h;
         for (int x = 0; x < w; x++) {
@@ -60,7 +60,6 @@ void Renderer::rayTrace(cil::CImg<unsigned char> &img, Geometry& scene, Perspect
     camera.init();
     int i = 0;
     int w = img.width(), h = img.height();
-    auto pixels = img.data();
     for (int y = 0; y < h; y++) {
         double sy = 1.0 - (double)y / h;
         for (int x = 0; x < w; x++) {
@@ -75,6 +74,44 @@ void Renderer::rayTrace(cil::CImg<unsigned char> &img, Geometry& scene, Perspect
                 img.atXYZC(x, y, 0, 2) = std::min( int(color->b() * 255), 255);
             }
             i += 4;
+        }
+    }
+}
+
+PtrColor Renderer::rayTraceRecursive( Geometry& scene, PtrRay ray, int maxReflect) {
+    PtrIntersectResult result = scene.intersect(ray);
+    if (result->getGeometry()) {
+    	PtrMaterial pMaterial = result->getGeometry()->getMaterial();
+        double reflectiveness = pMaterial->getReflectiveness();
+        PtrColor color = pMaterial->sample(ray, result->getPosition(), result->getNormal());
+        *color = *color * (1 - reflectiveness);
+         
+        if (reflectiveness > 0 && maxReflect > 0) {
+            PtrVector r =std::make_shared<Vector>( *(result->getNormal()) * (-2 * result->getNormal()->dot(*(ray->getDirection()))) + *(ray->getDirection()) );
+            PtrRay new_ray = std::make_shared<Ray>(result->getPosition(), r);
+            PtrColor reflectedColor = rayTraceRecursive(scene, ray, maxReflect - 1);
+            *color = *color + *reflectedColor * reflectiveness;
+        }
+        return color;
+    }
+    else
+        return Color::Black;
+}
+ 
+void Renderer::rayTraceReflection(cil::CImg<unsigned char> &img, Geometry& scene, PerspectiveCamera& camera, int maxReflect) {
+    scene.init();
+    camera.init();
+    int i = 0;
+    int w = img.width(), h = img.height();
+    for (int y = 0; y < h; y++) {
+        double sy = 1.0 - (double)y / h;
+        for (int x = 0; x < w; x++) {
+            double sx = (double)x / w;
+            PtrRay ray = camera.generateRay(sx, sy);
+            PtrColor color = rayTraceRecursive(scene, ray, maxReflect);
+            img.atXYZC(x, y, 0, 0) = std::min( int(color->r() * 255), 255);
+            img.atXYZC(x, y, 0, 1) = std::min( int(color->g() * 255), 255);
+            img.atXYZC(x, y, 0, 2) = std::min( int(color->b() * 255), 255);
         }
     }
 }

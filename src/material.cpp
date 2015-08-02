@@ -5,7 +5,7 @@
 
 CheckerMaterial::CheckerMaterial(double scale, double reflectiveness):
     m_scale(scale),
-    m_reflectiveness(reflectiveness){
+    Material(reflectiveness){
 };
 
 PtrColor CheckerMaterial::sample(PtrRay ray, PtrVector position, PtrVector normal){
@@ -17,7 +17,7 @@ PhongMaterial::PhongMaterial(PtrColor diffuse, PtrColor specular, int shininess,
     m_diffuse(diffuse),
     m_specular(specular),
     m_shininess(shininess),
-    m_reflectiveness(reflectiveness){
+    Material(reflectiveness){
 
 };
 

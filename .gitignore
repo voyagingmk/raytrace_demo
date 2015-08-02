@@ -1,3 +1,5 @@
 bin/
 obj/
 src/sphere.cpp.save-failed
+*.o
+*.exe

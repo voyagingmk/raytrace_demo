@@ -137,7 +137,7 @@
 1438361944 e:\workspace\dropbox\dropbox\cpp_server\include\vector.hpp
 	"base.hpp"
 
-1438448822 source:e:\workspace\dropbox\dropbox\cpp_server\src\main.cpp
+1438492211 source:e:\workspace\dropbox\dropbox\cpp_server\src\main.cpp
 	<stdio.h>
 	"base.hpp"
 	"catch.hpp"
@@ -147,6 +147,8 @@
 	"perspectivecamera.hpp"
 	"material.hpp"
 	"color.hpp"
+	"plane.hpp"
+	"union.hpp"
 
 1437983646 e:\workspace\dropbox\dropbox\cpp_server\include\catch.hpp
 	<sstream>
@@ -265,11 +267,14 @@
 1438275314 e:\workspace\dropbox\dropbox\cpp_server\include\perspectivecamera.hpp
 	"base.hpp"
 
-1438441010 e:\workspace\dropbox\dropbox\cpp_server\include\base.hpp
+1438489855 e:\workspace\dropbox\dropbox\cpp_server\include\base.hpp
 	<memory>
 	<stdio.h>
 	<string>
 	<math.h>
+	<limits>
+	<vector>
+	<list>
 	"CImg.h"
 
 1438320773 e:\workspace\dropbox\dropbox\cpp_server\include\ray.hpp
@@ -400,7 +405,7 @@
 1438447081 e:\workspace\dropbox\dropbox\cpp_server\include\renderer.hpp
 	"base.hpp"
 
-1438447335 source:e:\workspace\dropbox\dropbox\cpp_server\src\renderer.cpp
+1438450167 source:e:\workspace\dropbox\dropbox\cpp_server\src\renderer.cpp
 	"renderer.hpp"
 	"perspectivecamera.hpp"
 	"geometry.hpp"
@@ -424,6 +429,27 @@
 	"color.hpp"
 	"ray.hpp"
 
-1438449214 e:\workspace\dropbox\dropbox\cpp_server\include\material.hpp
+1438492083 e:\workspace\dropbox\dropbox\cpp_server\include\material.hpp
 	"base.hpp"
+
+1438487734 source:e:\workspace\dropbox\dropbox\cpp_server\src\plane.cpp
+	"plane.hpp"
+	"vector.hpp"
+	"ray.hpp"
+	"intersect_result.hpp"
+
+1438487161 e:\workspace\dropbox\dropbox\cpp_server\include\plane.hpp
+	"base.hpp"
+	"geometry.hpp"
+
+1438489620 source:e:\workspace\dropbox\dropbox\cpp_server\src\union.cpp
+	"union.hpp"
+	"sphere.hpp"
+	"plane.hpp"
+	"ray.hpp"
+	"intersect_result.hpp"
+
+1438490242 e:\workspace\dropbox\dropbox\cpp_server\include\union.hpp
+	"base.hpp"
+	"geometry.hpp"
 
