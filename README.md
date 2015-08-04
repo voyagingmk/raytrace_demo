@@ -11,6 +11,6 @@ So you could compile it by yourself or use the Makefile.win or just run the demo
 
 I write this demo on Windows, never on other platforms, but I've considered the cross-platform problems.
 
-In order to let it runs on Mac or Linux, I only use standard C++ and a fantasic third-party image library——CImg.
+In order to let it runs on Mac or Linux, I only use standard C++ and a fantasitic third-party image library——CImg.
 
-The codes hasn't been optimized and it's not robust. It's a demo, you know. :)
+The code hasn't been optimized and it's not robust. It's a demo, you know. :)
