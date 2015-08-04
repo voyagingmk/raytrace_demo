@@ -14,3 +14,5 @@ I write this demo on Windows, never on other platforms, but I've considered the 
 In order to let it runs on Mac or Linux, I only use standard C++ and a fantasitic third-party image library——CImg.
 
 The code hasn't been optimized and it's not robust. It's a demo, you know. :)
+
+![1.png](http://www.qiujiawei.com/images/2015.8/1.png)
