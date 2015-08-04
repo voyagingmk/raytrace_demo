@@ -1,17 +1,17 @@
 # Project: renderer
 # Makefile created by Dev-C++ 5.11
 
-CPP      = g++.exe -D__DEBUG__
-CC       = gcc.exe -D__DEBUG__
+CPP      = g++.exe
+CC       = gcc.exe
 WINDRES  = windres.exe
 OBJ      = obj/color.o obj/common.o obj/geometry.o obj/intersect_result.o obj/main.o obj/material.o obj/perspectivecamera.o obj/plane.o obj/ray.o obj/renderer.o obj/sphere.o obj/union.o obj/vector.o
 LINKOBJ  = obj/color.o obj/common.o obj/geometry.o obj/intersect_result.o obj/main.o obj/material.o obj/perspectivecamera.o obj/plane.o obj/ray.o obj/renderer.o obj/sphere.o obj/union.o obj/vector.o
-LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -g -lgdi32 -g3
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -g -lgdi32
 INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"E:/workspace/dropbox/Dropbox/cpp_server/src" -I"E:/workspace/dropbox/Dropbox/cpp_server/include"
 CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++" -I"E:/workspace/dropbox/Dropbox/cpp_server/src" -I"E:/workspace/dropbox/Dropbox/cpp_server/include"
 BIN      = bin/renderer.exe
-CXXFLAGS = $(CXXINCS) -Wall -Wfatal-errors -g3 -std=gnu++11 -lgdi32 -pthread
-CFLAGS   = $(INCS) -Wall -Wfatal-errors -g3
+CXXFLAGS = $(CXXINCS) -std=gnu++11 -lgdi32 -pthread
+CFLAGS   = $(INCS) 
 RM       = rm.exe -f
 
 .PHONY: all all-before all-after clean clean-custom
