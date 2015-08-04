@@ -1,7 +1,11 @@
 #include <stdio.h>
-#define CATCH_CONFIG_MAIN
+#include <thread>
+#include <ctime>
+#include <chrono>
+
+//#define CATCH_CONFIG_MAIN
+//#include "catch.hpp"
 #include "base.hpp"
-#include "catch.hpp"
 #include "vector.hpp"
 #include "renderer.hpp"
 #include "sphere.hpp"
@@ -12,29 +16,37 @@
 #include "union.hpp"
 
 
+
+/*
 TEST_CASE( "Vector base usages", "[Vector]" ) {
-    printf("==========\n");
 	Vector v1(0,0,0);
 	Vector v2(v1);
 	REQUIRE( v1 == v2 );
-	printf("===\n");
     Vector v3(-1,-1,-1);
 	Vector v4(1,1,1);
 	REQUIRE( v3 + v4 == v2 );
-	printf("===\n");
 	REQUIRE( v3 + v4 + v3 + v4 == v2 );
-	printf("===\n");
 	Vector v10 = (v1 + v4);
-	v10.debug();
-	printf("===\n");
 	REQUIRE( v3 == -v4 );
-	printf("===\n");
 	REQUIRE( -v3 * 5 == v4 * 5 );
-	printf("===\n");
 	REQUIRE( v1.cross(v3+v4) == v2.cross(v3+v4) );
+};
+*/
 
-	cil::CImg<unsigned char> img(500,500,1,3);
-	//printf("%s",img.data());
+void renderArea(Renderer &renderer, cil::CImg<unsigned char> &img, PtrGeometry pUnion, PerspectiveCamera& camera, int maxReflect, int x, int y, int w, int h)
+{
+	renderer.rayTraceReflection(img, std::static_pointer_cast<Geometry>(pUnion), camera, maxReflect, x,y,w,h);
+}
+
+int main(int argc, char ** argv){
+	if(argc < 3){
+		printf ("usage: renderer width height multithread(0/1)\n");
+		return -1;
+	
+	}
+	int width = atoi(argv[1]), height = atoi(argv[2]), multithread = atoi(argv[3]);
+	printf ("width: %d, height: %d, multithread: %d \n", width, height, multithread);
+	cil::CImg<unsigned char> img(width,height,1,3);
 	Renderer renderer;
 	/*
 	PtrSphere sphere = std::make_shared<Sphere>(std::make_shared<Vector>(0,10,-10),10);
@@ -61,10 +73,19 @@ TEST_CASE( "Vector base usages", "[Vector]" ) {
                           std::make_shared<Vector>(0, 0, -1),
                           std::make_shared<Vector>(0, 1, 0),
                           90);
-
-	//renderer.rayTrace(img, *pUnion, camera);
-	renderer.rayTraceReflection(img, std::static_pointer_cast<Geometry>(pUnion), camera, 3);
-
+	auto time0 = std::chrono::system_clock::now();
+	if(!multithread){
+		renderer.rayTrace(img, *pUnion, camera);
+		renderer.rayTraceReflection(img, std::static_pointer_cast<Geometry>(pUnion), camera, 4);
+	}else{
+		std::thread t1(renderArea, std::ref(renderer), std::ref(img), std::static_pointer_cast<Geometry>(pUnion), std::ref(camera), 4, 0, 0, width, height/2); 
+		std::thread t2(renderArea, std::ref(renderer), std::ref(img), std::static_pointer_cast<Geometry>(pUnion), std::ref(camera), 4, 0, height/2, width, height/2); 
+		t1.join();
+	    t2.join();	
+	}
+	auto time1 = std::chrono::system_clock::now();
+	auto time_cost = std::chrono::duration_cast<std::chrono::milliseconds>(time1 - time0).count();
+    printf("cost: %lldms\n",time_cost);
 	img.display("");
-	//REQUIRE( (v4.normalize() - Vector(10,10,10).normalize())==Vector(0,0,0));
+	return 0;
 }

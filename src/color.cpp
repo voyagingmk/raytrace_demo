@@ -59,9 +59,9 @@ Color Color::modulate(const Color& c){
     return Color(m_rgb[0] * c.r(), m_rgb[1] * c.g(), m_rgb[2] * c.b());
 };
 
-PtrColor Color::Black = std::make_shared<Color>(0, 0, 0);
-PtrColor Color::White = std::make_shared<Color>(1.0, 1.0, 1.0);
-PtrColor Color::Red = std::make_shared<Color>(1.0, 0, 0);
-PtrColor Color::Green = std::make_shared<Color>(0, 1.0, 0);
-PtrColor Color::Blue = std::make_shared<Color>(0,0,1.0);
+const PtrColor Color::Black = std::make_shared<Color>(0, 0, 0);
+const PtrColor Color::White = std::make_shared<Color>(1.0, 1.0, 1.0);
+const PtrColor Color::Red = std::make_shared<Color>(1.0, 0, 0);
+const PtrColor Color::Green = std::make_shared<Color>(0, 1.0, 0);
+const PtrColor Color::Blue = std::make_shared<Color>(0,0,1.0);
 

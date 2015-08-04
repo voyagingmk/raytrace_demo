@@ -93,14 +93,18 @@ PtrColor Renderer::rayTraceRecursive( PtrGeometry scene, PtrRay ray, int maxRefl
         return Color::Black;
 }
  
-void Renderer::rayTraceReflection(cil::CImg<unsigned char> &img, PtrGeometry scene, PerspectiveCamera& camera, int maxReflect) {
+void Renderer::rayTraceReflection(cil::CImg<unsigned char> &img, PtrGeometry scene, PerspectiveCamera& camera, int maxReflect, int px, int py, int pw, int ph) {
     scene->init();
     camera.init();
-    int w = img.width(), h = img.height();
-    for (int y = 0; y < h; y++) {
-        double sy = 1.0 - (double)y / h;
-        for (int x = 0; x < w; x++) {
-            double sx = (double)x / w;
+    int w = pw, h = ph, img_width = img.width(), img_height = img.height();
+    if(w == 0)
+		w = img_width;
+	if(h == 0)
+		h = img_height;
+    for (int y = py, yMax = py + h; y < yMax; y++) {
+        double sy = 1.0 - (double)y / img_height;
+        for (int x = px, xMax = px + w; x < xMax; x++) {
+            double sx = (double)x / img_width;
             //printf("sx,sy=%f,%f\n",sx,sy);
             PtrRay ray = camera.generateRay(sx, sy);
             PtrColor color = rayTraceRecursive(scene, ray, maxReflect);

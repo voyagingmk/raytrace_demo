@@ -4,13 +4,13 @@
 CPP      = g++.exe -D__DEBUG__
 CC       = gcc.exe -D__DEBUG__
 WINDRES  = windres.exe
-OBJ      = src/color.o src/common.o src/geometry.o src/intersect_result.o src/main.o src/material.o src/perspectivecamera.o src/plane.o src/ray.o src/renderer.o src/sphere.o src/union.o src/vector.o
-LINKOBJ  = src/color.o src/common.o src/geometry.o src/intersect_result.o src/main.o src/material.o src/perspectivecamera.o src/plane.o src/ray.o src/renderer.o src/sphere.o src/union.o src/vector.o
+OBJ      = obj/color.o obj/common.o obj/geometry.o obj/intersect_result.o obj/main.o obj/material.o obj/perspectivecamera.o obj/plane.o obj/ray.o obj/renderer.o obj/sphere.o obj/union.o obj/vector.o
+LINKOBJ  = obj/color.o obj/common.o obj/geometry.o obj/intersect_result.o obj/main.o obj/material.o obj/perspectivecamera.o obj/plane.o obj/ray.o obj/renderer.o obj/sphere.o obj/union.o obj/vector.o
 LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -g -lgdi32 -g3
 INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"E:/workspace/dropbox/Dropbox/cpp_server/src" -I"E:/workspace/dropbox/Dropbox/cpp_server/include"
 CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++" -I"E:/workspace/dropbox/Dropbox/cpp_server/src" -I"E:/workspace/dropbox/Dropbox/cpp_server/include"
-BIN      = renderer.exe
-CXXFLAGS = $(CXXINCS) -Wall -Wfatal-errors -g3 -std=gnu++11 -lgdi32
+BIN      = bin/renderer.exe
+CXXFLAGS = $(CXXINCS) -Wall -Wfatal-errors -g3 -std=gnu++11 -lgdi32 -pthread
 CFLAGS   = $(INCS) -Wall -Wfatal-errors -g3
 RM       = rm.exe -f
 
@@ -24,41 +24,41 @@ clean: clean-custom
 $(BIN): $(OBJ)
 	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
 
-src/color.o: src/color.cpp
-	$(CPP) -c src/color.cpp -o src/color.o $(CXXFLAGS)
+obj/color.o: src/color.cpp
+	$(CPP) -c src/color.cpp -o obj/color.o $(CXXFLAGS)
 
-src/common.o: src/common.cpp
-	$(CPP) -c src/common.cpp -o src/common.o $(CXXFLAGS)
+obj/common.o: src/common.cpp
+	$(CPP) -c src/common.cpp -o obj/common.o $(CXXFLAGS)
 
-src/geometry.o: src/geometry.cpp
-	$(CPP) -c src/geometry.cpp -o src/geometry.o $(CXXFLAGS)
+obj/geometry.o: src/geometry.cpp
+	$(CPP) -c src/geometry.cpp -o obj/geometry.o $(CXXFLAGS)
 
-src/intersect_result.o: src/intersect_result.cpp
-	$(CPP) -c src/intersect_result.cpp -o src/intersect_result.o $(CXXFLAGS)
+obj/intersect_result.o: src/intersect_result.cpp
+	$(CPP) -c src/intersect_result.cpp -o obj/intersect_result.o $(CXXFLAGS)
 
-src/main.o: src/main.cpp
-	$(CPP) -c src/main.cpp -o src/main.o $(CXXFLAGS)
+obj/main.o: src/main.cpp
+	$(CPP) -c src/main.cpp -o obj/main.o $(CXXFLAGS)
 
-src/material.o: src/material.cpp
-	$(CPP) -c src/material.cpp -o src/material.o $(CXXFLAGS)
+obj/material.o: src/material.cpp
+	$(CPP) -c src/material.cpp -o obj/material.o $(CXXFLAGS)
 
-src/perspectivecamera.o: src/perspectivecamera.cpp
-	$(CPP) -c src/perspectivecamera.cpp -o src/perspectivecamera.o $(CXXFLAGS)
+obj/perspectivecamera.o: src/perspectivecamera.cpp
+	$(CPP) -c src/perspectivecamera.cpp -o obj/perspectivecamera.o $(CXXFLAGS)
 
-src/plane.o: src/plane.cpp
-	$(CPP) -c src/plane.cpp -o src/plane.o $(CXXFLAGS)
+obj/plane.o: src/plane.cpp
+	$(CPP) -c src/plane.cpp -o obj/plane.o $(CXXFLAGS)
 
-src/ray.o: src/ray.cpp
-	$(CPP) -c src/ray.cpp -o src/ray.o $(CXXFLAGS)
+obj/ray.o: src/ray.cpp
+	$(CPP) -c src/ray.cpp -o obj/ray.o $(CXXFLAGS)
 
-src/renderer.o: src/renderer.cpp
-	$(CPP) -c src/renderer.cpp -o src/renderer.o $(CXXFLAGS)
+obj/renderer.o: src/renderer.cpp
+	$(CPP) -c src/renderer.cpp -o obj/renderer.o $(CXXFLAGS)
 
-src/sphere.o: src/sphere.cpp
-	$(CPP) -c src/sphere.cpp -o src/sphere.o $(CXXFLAGS)
+obj/sphere.o: src/sphere.cpp
+	$(CPP) -c src/sphere.cpp -o obj/sphere.o $(CXXFLAGS)
 
-src/union.o: src/union.cpp
-	$(CPP) -c src/union.cpp -o src/union.o $(CXXFLAGS)
+obj/union.o: src/union.cpp
+	$(CPP) -c src/union.cpp -o obj/union.o $(CXXFLAGS)
 
-src/vector.o: src/vector.cpp
-	$(CPP) -c src/vector.cpp -o src/vector.o $(CXXFLAGS)
+obj/vector.o: src/vector.cpp
+	$(CPP) -c src/vector.cpp -o obj/vector.o $(CXXFLAGS)
